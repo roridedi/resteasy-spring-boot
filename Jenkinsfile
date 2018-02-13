@@ -9,20 +9,15 @@ node {
         stage ('Build') {
         	sh "echo 'shell scripts to build project...'"
         }
-        stage ('Tests') {
-	        parallel 'static': {
-	            sh "echo 'shell scripts to run static tests...'"
-	        },
-	        'unit': {
-	            sh "echo 'shell scripts to run unit tests...'"
-	        },
-	        'integration': {
-	            sh "echo 'shell scripts to run integration tests...'"
-	        }
+        stage('Build war') {
+          echo "Building version"
+
+          sh "${mvnCmd} clean package -DskipTests"
         }
-      	stage ('Deploy') {
-            sh "echo 'shell scripts to deploy to server...'"
-      	}
+        stage('Unit Tests') {
+          echo "Unit Tests"
+          sh "${mvnCmd} test"
+        }
     } catch (err) {
         currentBuild.result = 'FAILED'
         throw err

@@ -1,23 +1,18 @@
 node('maven')  {
  	// clean workspace
     deleteDir()
-
+  def groupId    = getGroupIdFromPom("pom.xml")
+  def artifactId = getArtifactIdFromPom("pom.xml")
+  def version    = getVersionFromPom("pom.xml")
     try {
         stage ('Clone') {
         	checkout scm
         }
-        stage ('Build') {
-        	sh "echo 'shell scripts to build project...'"
-        }
-        stage('Build war') {
-          echo "Building version"
+   stage('Build war') {
+    echo "Building version ${version}"
 
-          sh "$mvn clean package -DskipTests"
-        }
-        stage('Unit Tests') {
-          echo "Unit Tests"
-          sh "${mvnCmd} test"
-        }
+    sh "${mvnCmd} clean package -DskipTests"
+  }
     } catch (err) {
         currentBuild.result = 'FAILED'
         throw err

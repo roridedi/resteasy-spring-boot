@@ -12,7 +12,7 @@ node {
         stage('Build war') {
           echo "Building version"
 
-          sh "${mvnCmd} clean package -DskipTests"
+          sh "$mvn clean package -DskipTests"
         }
         stage('Unit Tests') {
           echo "Unit Tests"

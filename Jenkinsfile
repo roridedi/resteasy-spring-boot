@@ -1,4 +1,4 @@
-node {
+node('maven')  {
  	// clean workspace
     deleteDir()
 

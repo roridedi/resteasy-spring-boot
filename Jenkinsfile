@@ -1,3 +1,4 @@
+
 node {
  	// clean workspace
     deleteDir()
@@ -17,9 +18,6 @@ node {
                       sh 'mvn -B package'
                   }
               }
-          }(err) {
-        currentBuild.result = 'FAILED'
-        throw err
-    }
+          }
 }
 }

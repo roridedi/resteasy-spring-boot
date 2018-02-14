@@ -14,7 +14,7 @@ node('maven') {
           }
               stage('Build') {
               
-                      sh 'mvn clean install package'
+  sh 'mvn -B package'
               }
               }
               

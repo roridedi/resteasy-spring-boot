@@ -11,10 +11,11 @@ node('maven') {
            
                  stage ('Clone') {
         	checkout scm
+          }
               stage('Build') {
                   steps {
                       sh 'mvn -B package'
                   }
               }
               }
-              }
+              

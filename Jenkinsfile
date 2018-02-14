@@ -1,4 +1,3 @@
-
 node {
  	// clean workspace
     deleteDir()
@@ -22,4 +21,5 @@ node {
         currentBuild.result = 'FAILED'
         throw err
     }
+}
 }

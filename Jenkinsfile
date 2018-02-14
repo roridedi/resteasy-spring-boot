@@ -13,9 +13,8 @@ node('maven') {
         	checkout scm
           }
               stage('Build') {
-                  steps {
+              
                       sh 'mvn -B package'
-                  }
               }
               }
               

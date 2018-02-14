@@ -1,5 +1,5 @@
 
-node {
+node('groovy') {
  	// clean workspace
     deleteDir()
 agent any

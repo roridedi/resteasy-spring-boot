@@ -1,5 +1,5 @@
 
-node {
+node('jenkins-slave-maven-rhel7-docker') {
  	// clean workspace
     deleteDir()
     tools {

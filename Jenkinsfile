@@ -5,12 +5,12 @@ node {
     tools {
         maven 'M3'
     }
-    try {
+    
         stage ('Clone') {
         	checkout scm
         }
-        
-      
+
+
 
           stages {
               stage('Build') {
@@ -19,5 +19,4 @@ node {
                   }
               }
           }
-}
 }

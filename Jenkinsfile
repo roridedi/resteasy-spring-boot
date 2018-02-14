@@ -2,7 +2,10 @@
 node {
  	// clean workspace
     deleteDir()
-
+agent any
+  tools {
+    maven 'M3'
+  }
     try {
         stage ('Clone') {
         	checkout scm

@@ -4,13 +4,15 @@ node('maven') {
     deleteDir()
  
     
-        stage ('Clone') {
-        	checkout scm
-        }
+  
 
 
 
           stages {
+           
+                 stage ('Clone') {
+        	checkout scm
+        }
               stage('Build') {
                   steps {
                       sh 'mvn -B package'

@@ -16,3 +16,5 @@ node('maven') {
                       sh 'mvn -B package'
                   }
               }
+              }
+              }
